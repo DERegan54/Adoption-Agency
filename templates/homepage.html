@@ -1,0 +1,25 @@
+{% extends 'base.html' %} 
+
+{% block title %}Homepage{% endblock %} 
+
+{% block content %}
+<a href="/add"<button type="submit" id="add-btn">Add a Pet</button></a> 
+<br>
+<ul id="pet-list">
+    {% for pet in pets %} 
+    <li class="pet-in-list">
+        <a href="/{{ pet.id }}">{{ pet.name }}</a>
+        {% if pet.image_url %}
+        <img src="{{ pet.image_ur l}}" alt="{{ pet.name }}">
+        {% endif %} 
+        {% if pet.available == True }
+            <h3><b>AVAILABLE FOR ADOPTION!</b></h3>
+        {% else %}
+            <h3>Adopted</h3>
+        {% endif %} 
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %} 
+
