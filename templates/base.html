@@ -8,17 +8,15 @@
     <title>{% block title %} {% endblock %}</title>
 </head>
 <body>
-
-    <h1>Find-A-Pet</h1>
-
+    
     {% for msg in get_flashed_messages() %}
 
     <div>{{ msg }}</div>
     
     {% endfor %}
-
-    {% block content %} 
     
+    {% block content %} 
+
     {% endblock %}    
     
 </body>

@@ -1,0 +1,21 @@
+{% extends 'base.html' %} 
+
+{% block content %} 
+
+<h1>Find-A-Pet</h1>
+
+<h2>{{pet.name}}</h2>
+
+{% if pet.photo_url %} 
+<img src="{{pet.photo_url}}">
+{% endif %} 
+
+<h3>Update:</h3>
+
+<form method "POST">
+    {% include "_form.html" %}
+    <br><br>
+    <button type="submit">Save</button>
+</form>
+
+{% endblock %}
