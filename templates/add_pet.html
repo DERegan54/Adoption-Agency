@@ -1,13 +1,21 @@
 {% extends 'base.html' %} 
 
 {% block content %} 
-<h1>Find-a-Pet</h1>
-<h2>Add a Pet:</h2>
+<h1 class="text-center">Find-a-Pet</h1>
 
-<form method="POST">
-    {% include "_form.html" %} 
-    <br><br>
-    <a href="/"><button type="submit">Add</button></a>
-</form>
-
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-6">
+            <h3>Add a Pet:</h3>
+            <div class="border border-info">
+                <form method="POST" >
+                    {% include "_form.html" %} 
+                    <a href="/"><button type="submit" class="btn btn-info">Add</button></a>
+                </form>
+            </div>
+            <br>
+            
+        </div>
+    </div>
+</div>
 {% endblock %} 

@@ -4,23 +4,32 @@
 
 {% block content %}
 
-<h1>Find-A-Pet</h1>
-
-<a href="/add"><button type="submit" id="add-btn">Add a Pet</button></a> 
+<h1 class="text-center">Find-A-Pet</h1>
 <br>
-<ul id="pet-list">
-    {% for pet in pets %} 
-    <li class="pet-in-list">
-        <a href="/pet_details/{{ pet.id }}">{{ pet.name }}</a>
-        <img src="{{ pet.image_url() }}" alt="{{ pet.name }}">
-        {% if pet.available == True %}
-            <h3><b>AVAILABLE FOR ADOPTION!</b></h3>
-        {% else %}
-            <h3>Adopted</h3>
-        {% endif %} 
-    </li>
-    {% endfor %}
-</ul>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <a href="/add"><button type="submit" class="btn btn-info">Add a Pet</button></a> 
+                <br><br>
+            <ul id="pet-list">
+            {% for pet in pets %} 
+                <li>
+                    <a href="/pet_details/{{ pet.id }}"><h3>{{ pet.name }}</h3></a>
+                    <img src="{{ pet.image_url() }}" alt="{{ pet.name }}" class="img-thumbnail">
+                    {% if pet.available == True %}
+                        <h5>AVAILABLE FOR ADOPTION!</h5>
+                    {% else %}
+                        <h5>Adopted</h5>
+                    {% endif %}
+                <br>
+                <hr>
+                <br>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>      
+    </div>
+</div>
 
 {% endblock %} 
 

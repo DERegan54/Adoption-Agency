@@ -2,7 +2,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
-DEFAULT_IMAGE = "https://vistaflags.com/21655-medium_default/adopt-a-pet-ado1.jpg"
+DEFAULT_IMAGE = "https://lirp.cdn-website.com/3330089d/dms3rep/multi/opt/Adopt+a+Pet+License+Plate+copy-372w.png"
 # MODELS GO BELOW!
 
 class Pet(db.Model):
@@ -19,7 +19,7 @@ class Pet(db.Model):
     available = db.Column(db.Boolean, nullable = False, default = True)
 
     def image_url(self):
-        """Return uploaded image of pet or default."""
+        """Return uploaded image of pet or default image."""
 
         return self.photo_url or DEFAULT_IMAGE
 
@@ -28,4 +28,4 @@ def connect_db(app):
     """Connects database to Flask app."""
     db.app = app
     db.init_app(app)
-    
+

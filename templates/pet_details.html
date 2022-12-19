@@ -4,26 +4,33 @@
 
 {% block content %}
 
-<h1>Find-A-Pet</h1>
+<h1 class="text-center">Find-A-Pet</h1>
+<br><br>
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <h1>{{pet.name}}</h1>
+            {% if pet.photo_url %} 
+                <img src="{{pet.photo_url}}" class="img-thumbnail">
+            {% endif %} 
+            <br><br>
+            <p>
+                <h5>Details:</h5>
+                <div class="border border-info">
+                    <b>Species:</b> {{pet.species}}
+                    <br>
+                    <b>Age (in years):</b> {{pet.age}}
+                    <br>
+                    <b>Notes:</b> {{pet.notes}}
+                    <br>
+                    <b>Availability:</b> {{pet.available}}
+                </div>
+                <br>
+                <a href="/edit_pet/{{pet.id}}"><button class="btn btn-info">Edit Pet Details</button></a>
+            </p>
 
-<div id="container">
-    <h1>{{pet.name}}</h1>
-    <br><br>
-    {% if pet.photo_url %} 
-        <img src="{{pet.photo_url}}">
-    {% endif %} 
-    <br><br>
-    <p>
-        <b>Species:</b> {{pet.species}}
-        <br><br>
-        <b>Age (in years):</b> {{pet.age}}
-        <br><br>
-        <b>Notes:</b> {{pet.notes}}
-        <br><br>
-        <b>Availability:</b> {{pet.available}}
-        <br><br>
-        <a href="/edit_pet/{{pet.id}}"><button>Edit Pet Details</button></a>
-    </p>
+        </div>
+    </div>
 </div>
 {% endblock %} 
 

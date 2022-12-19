@@ -1,27 +1,25 @@
-{% extends 'base.html' %} 
 
-{% block title %}Add Pet{% endblock %} 
-
-{% block content %}
   
     {{ form.hidden_tag() }}
 
     {% for field in form if field.widget.input_type != 'hidden' %} 
     
-
-    <div>
-      {{ field.label }}
-      {{ field }}
-  
-      <div>
-        {% if field.errors %} 
-          {% for error in field.errors %}
-            <p>{{ error }}</p>
-          {% endfor %}
-        {% endif %}  
+    <div class="container">
+      <div class="row">
+        <div class="col-6">
+          {{ field.label }}
+          {{ field }}
+            <div>
+              {% if field.errors %} 
+                {% for error in field.errors %}
+                  <p class="text-danger">{{ error }}</p>
+                {% endfor %}
+              {% endif %}  
+            </div>
+        </div>  
       </div>
     </div>
   {% endfor %}  
 
-{% endblock %} 
+
 
